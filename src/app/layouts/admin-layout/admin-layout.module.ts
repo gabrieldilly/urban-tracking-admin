@@ -11,6 +11,10 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { ModaisComponent } from '../../modais/modais.component';
+import { EstacoesComponent } from '../../estacoes/estacoes.component';
+import { LinhasComponent } from '../../linhas/linhas.component';
+import { ComposicoesComponent } from '../../composicoes/composicoes.component';
 
 import {
   MatButtonModule,
@@ -18,6 +22,7 @@ import {
   MatRippleModule,
   MatTooltipModule,
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -37,6 +42,10 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    ModaisComponent,
+    EstacoesComponent,
+    LinhasComponent,
+    ComposicoesComponent,
   ]
 })
 

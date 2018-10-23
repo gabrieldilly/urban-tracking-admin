@@ -8,6 +8,10 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { ModaisComponent } from '../../modais/modais.component';
+import { EstacoesComponent } from '../../estacoes/estacoes.component';
+import { LinhasComponent } from '../../linhas/linhas.component';
+import { ComposicoesComponent } from '../../composicoes/composicoes.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -60,4 +64,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'modais',         component: ModaisComponent },
+    { path: 'estacoes',       component: EstacoesComponent },
+    { path: 'linhas',         component: LinhasComponent },
+    { path: 'composicoes',    component: ComposicoesComponent },
 ];
