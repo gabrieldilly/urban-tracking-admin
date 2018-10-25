@@ -8,6 +8,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./criar-modal.component.scss']
 })
 export class CriarModalComponent implements OnInit{
+  nome: string;
 
   constructor(
     public dialogRef: MatDialogRef<CriarModalComponent>
@@ -23,6 +24,6 @@ export class CriarModalComponent implements OnInit{
   
   criarModal() {
     // Criar Novo Modal no BD
-    this.dialogRef.close();
+    this.dialogRef.close({nome: this.nome})
   }
 }

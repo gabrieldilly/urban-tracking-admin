@@ -57,8 +57,16 @@ export class ModaisComponent implements OnInit {
       width: '250px',
     })
 
-    dialogRef.afterClosed().subscribe(() => {
+    dialogRef.afterClosed().subscribe((data) => {
       console.log('The dialog was closed');
+      console.log(data);
+
+      this.modais.push({
+        nome: data.nome,
+        totalLinhas: 10,
+        totalEstacoes: 20,
+        totalComposicoes: 15
+      })
     });
   }
 }
