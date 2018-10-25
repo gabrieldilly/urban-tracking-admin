@@ -1,6 +1,15 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-button class="btn pull-right" (click)="criarModal()">
+                    Criar Modal
+                </button>
+            </div>
+        </div>          
+    </div>
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-md-4" *ngFor="let modal of modais">
                 <div class="card card-chart">
                     <div class="card-header card-header-danger">
@@ -11,8 +20,6 @@
                             <i class="material-icons">edit</i>
                         </button>
                         <h4 class="card-title">{{modal.nome}}</h4>
-                              
-
                         <p class="card-category">Total de Linhas: {{modal.totalLinhas}}</p>
                         <p class="card-category">Total de Estações: {{modal.totalEstacoes}}</p>
                         <p class="card-category">Total de Composições: {{modal.totalComposicoes}}</p>
@@ -24,5 +31,6 @@
                     </div>
                 </div>
             </div>
-      </div>
+        </div>          
+    </div>
 </div>

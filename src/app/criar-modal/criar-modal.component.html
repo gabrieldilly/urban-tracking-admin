@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Criar Modal</h1>
+<div mat-dialog-content>
+  <label>Tipo</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nome">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="criarModal()">Confirmar</button>
+</div>

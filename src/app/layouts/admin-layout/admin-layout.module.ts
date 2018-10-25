@@ -16,6 +16,7 @@ import { EstacoesComponent } from '../../estacoes/estacoes.component';
 import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
 import { EditarModalComponent } from 'app/editar-modal/editar-modal.component';
+import { CriarModalComponent } from 'app/criar-modal/criar-modal.component';
 
 import {
   MatButtonModule,
@@ -49,10 +50,12 @@ import {
     EstacoesComponent,
     LinhasComponent,
     ComposicoesComponent,
-    EditarModalComponent
+    EditarModalComponent,
+    CriarModalComponent
   ],
   entryComponents: [
-    EditarModalComponent
+    EditarModalComponent,
+    CriarModalComponent
   ]
 })
 
