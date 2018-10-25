@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
@@ -15,7 +16,9 @@ import { ModaisComponent } from '../../modais/modais.component';
 import { EstacoesComponent } from '../../estacoes/estacoes.component';
 import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
-import { EditarModalComponent } from 'app/editar-modal/editar-modal.component';
+import { EditarModalComponent } from '../../editar-modal/editar-modal.component';
+import { ModaisService } from '../../services/modais.service';
+import { EstacoesService } from '../../services/estacoes.service';
 
 import {
   MatButtonModule,
@@ -34,7 +37,8 @@ import {
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule, 
+    HttpClientModule
   ],
   declarations: [
     DashboardComponent,
@@ -49,7 +53,11 @@ import {
     EstacoesComponent,
     LinhasComponent,
     ComposicoesComponent,
-    EditarModalComponent
+    EditarModalComponent,
+  ],
+  providers: [
+    ModaisService,
+    EstacoesService
   ],
   entryComponents: [
     EditarModalComponent

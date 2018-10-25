@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog } from '@angular/material';
-import { EditarModalComponent } from 'app/editar-modal/editar-modal.component';
+import { EditarModalComponent } from '../editar-modal/editar-modal.component';
 
 @Component({
   selector: 'app-modais',
