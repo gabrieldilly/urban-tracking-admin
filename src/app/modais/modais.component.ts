@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog } from '@angular/material';
 import { EditarModalComponent } from '../editar-modal/editar-modal.component';
+import { CriarModalComponent } from '../criar-modal/criar-modal.component';
 
 @Component({
   selector: 'app-modais',
@@ -9,7 +10,6 @@ import { EditarModalComponent } from '../editar-modal/editar-modal.component';
 })
 export class ModaisComponent implements OnInit {
   modais: any[];
-  showModal: boolean;
 
   constructor(
     public dialog: MatDialog
@@ -43,12 +43,30 @@ export class ModaisComponent implements OnInit {
 
   editarModal(modal){
     const dialogRef = this.dialog.open(EditarModalComponent, {
-      width: '250px',
+      width: '400px',
       data: {modal: modal}
     })
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
+    });
+  }
+
+  criarModal() {
+    const dialogRef = this.dialog.open(CriarModalComponent, {
+      width: '250px',
+    })
+
+    dialogRef.afterClosed().subscribe((data) => {
+      console.log('The dialog was closed');
+      console.log(data);
+
+      this.modais.push({
+        nome: data.nome,
+        totalLinhas: 10,
+        totalEstacoes: 20,
+        totalComposicoes: 15
+      })
     });
   }
 }

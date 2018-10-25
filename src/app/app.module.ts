@@ -23,6 +23,7 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatDialog } from '@angular/material';
+import { CriarModalComponent } from './criar-modal/criar-modal.component';
 
 @NgModule({
   imports: [
