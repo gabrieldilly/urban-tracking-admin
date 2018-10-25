@@ -15,12 +15,14 @@ import { ModaisComponent } from '../../modais/modais.component';
 import { EstacoesComponent } from '../../estacoes/estacoes.component';
 import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
+import { EditarModalComponent } from 'app/editar-modal/editar-modal.component';
 
 import {
   MatButtonModule,
   MatInputModule,
   MatRippleModule,
   MatTooltipModule,
+  MatDialogModule,
 } from '@angular/material';
 
 @NgModule({
@@ -32,6 +34,7 @@ import {
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+    MatDialogModule
   ],
   declarations: [
     DashboardComponent,
@@ -46,6 +49,10 @@ import {
     EstacoesComponent,
     LinhasComponent,
     ComposicoesComponent,
+    EditarModalComponent
+  ],
+  entryComponents: [
+    EditarModalComponent
   ]
 })
 
