@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Criar Estacao</h1>
+<div mat-dialog-content>
+  <div layout="row">
+  <label>Tipo</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nome">
+  </mat-form-field>
+  <label>Modal</label>
+  <mat-form-field >
+    <select placeholder="Modal">
+      <option value="metro">Metrô</option>
+      <option value="brt">BRT</option>
+      <option value="vlt">VLT</option>
+      <option value="trem">Trem</option>
+      <option value="onibus">Ônibus</option>
+    </select>
+  </mat-form-field>
+  <label>Endereço</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="endereco">
+  </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="criarEstacao()">Confirmar</button>
+</div>

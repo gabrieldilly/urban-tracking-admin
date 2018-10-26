@@ -1,17 +1,26 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-tabs card-header-primary">
-                    <div class="nav-tabs-navigation">
-                        <div class="nav-tabs-wrapper">
-                            <span class="nav-tabs-title">Estações</span>
-                            <ul class="nav nav-tabs" data-tabs="tabs">
-                                <li class="nav-item" *ngFor="let modal of Modais.list; first as isFirst">
-                                    <a mat-button class="nav-link" data-toggle="tab" 
-                                       href="#estacao{{modal.id}}" [ngClass]="{active: isFirst}"
-                                       (click)="selecionarEstacao(modal.id)">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-button class="btn btn-success pull-right" (click)="criarEstacao()">
+                    Criar Estacao
+                </button>
+            </div>
+        </div>            
+    </div>     
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Estações</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item" *ngFor="let modal of Modais.list; first as isFirst">
+                                        <a mat-button class="nav-link" data-toggle="tab" 
+                                        href="#estacao{{modal.id}}" [ngClass]="{active: isFirst}"
+                                        (click)="selecionarEstacao(modal.id)">
                                         <i class="material-icons">{{modal.icon}}</i> {{modal.nome}}
                                         <div class="ripple-container"></div>
                                     </a>
@@ -27,12 +36,16 @@
                                   <th scope="col">ID</th>
                                   <th scope="col">Nome</th>
                                   <th scope="col">Linhas</th>
+                                  <th scope="col"></th>
                               </thead>
                               <tbody>
                                   <tr *ngFor="let estacao of filtradas">
                                       <td>{{estacao.id}}</td>
                                       <td>{{estacao.nome}}</td>
                                       <td>{{estacao.totalLinhas}}</td>
+                                      <td><button mat-icon-button class="btn" (click)="editarModal(modal)">
+                                            <i class="material-icons">edit</i>
+                                        </button></td>
                                   </tr>
                               </tbody>
                           </table>

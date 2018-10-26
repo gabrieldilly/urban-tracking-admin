@@ -24,6 +24,8 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatDialog } from '@angular/material';
 import { CriarModalComponent } from './criar-modal/criar-modal.component';
+import { CriarEstacaoComponent } from './criar-estacao/criar-estacao.component';
+import { EditarEstacaoComponent } from './editar-estacao/editar-estacao.component';
 
 @NgModule({
   imports: [

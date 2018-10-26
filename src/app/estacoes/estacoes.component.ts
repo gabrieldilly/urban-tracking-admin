@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModaisService } from '../services/modais.service';
 import { EstacoesService } from '../services/estacoes.service';
+import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-estacoes',
@@ -11,7 +13,10 @@ export class EstacoesComponent implements OnInit {
   selecionada: number;
   filtradas: any[];
 
-  constructor(public Modais: ModaisService, public Estacoes: EstacoesService) {
+  constructor(
+    public Modais: ModaisService, 
+    public Estacoes: EstacoesService,
+    public dialog: MatDialog) {
     this.Modais = Modais;
     this.Estacoes = Estacoes;
     
@@ -38,4 +43,21 @@ export class EstacoesComponent implements OnInit {
         this.filtradas.push(estacao);
   }
 
+  criarEstacao() {
+    const dialogRef = this.dialog.open(CriarEstacaoComponent, {
+      width: '250px',
+    })
+
+    dialogRef.afterClosed().subscribe((data) => {
+      console.log('The dialog was closed');
+      console.log(data);
+
+      this.Modais.list.push({
+        nome: data.nome,
+        totalLinhas: 10,
+        totalEstacoes: 20,
+        totalComposicoes: 15
+      })
+    });
+  }
 }

@@ -20,6 +20,7 @@ import { ModaisService } from '../../services/modais.service';
 import { EstacoesService } from '../../services/estacoes.service';
 import { EditarModalComponent } from '../../editar-modal/editar-modal.component';
 import { CriarModalComponent } from '../../criar-modal/criar-modal.component';
+import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
 
 import {
   MatButtonModule,
@@ -27,6 +28,7 @@ import {
   MatRippleModule,
   MatTooltipModule,
   MatDialogModule,
+  MatFormFieldModule,
 } from '@angular/material';
 
 @NgModule({
@@ -39,7 +41,8 @@ import {
     MatInputModule,
     MatTooltipModule,
     MatDialogModule, 
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule
   ],
   declarations: [
     DashboardComponent,
@@ -55,7 +58,8 @@ import {
     LinhasComponent,
     ComposicoesComponent,
     EditarModalComponent,
-    CriarModalComponent
+    CriarModalComponent,
+    CriarEstacaoComponent
   ],
   providers: [
     ModaisService,
@@ -63,7 +67,8 @@ import {
   ],
   entryComponents: [
     EditarModalComponent,
-    CriarModalComponent
+    CriarModalComponent,
+    CriarEstacaoComponent
   ]
 })
 

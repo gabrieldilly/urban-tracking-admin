@@ -18,7 +18,7 @@ export class CriarModalComponent implements OnInit{
     
   }
     
-  onNoClick(): void {
+  onCancelar(): void {
     this.dialogRef.close();
   }
   
