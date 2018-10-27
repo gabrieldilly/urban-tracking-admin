@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog } from '@angular/material';
 import { EditarModalComponent } from '../editar-modal/editar-modal.component';
 import { CriarModalComponent } from '../criar-modal/criar-modal.component';
+import { ModaisService } from '../services/modais.service';
 
 @Component({
   selector: 'app-modais',
@@ -12,30 +13,15 @@ export class ModaisComponent implements OnInit {
   modais: any[];
 
   constructor(
+    public Modais: ModaisService,
     public dialog: MatDialog
-  ) { 
-    this.modais = [
-      {
-        nome: "BRT",
-        totalLinhas: 10,
-        totalEstacoes: 20,
-        totalComposicoes: 15
-      },
-      {
-        nome: "VLT",
-        totalLinhas: 10,
-        totalEstacoes: 20,
-        totalComposicoes: 15
-      },
-      {
-        nome: "Ônibus",
-        totalLinhas: 10,
-        totalEstacoes: 20,
-        totalComposicoes: 15
-      }
-      ]
-      console.log(this.modais);
-    }
+  ) {
+    this.Modais.loadModais()
+    .then((modais: any[]) => {
+      console.log(modais);
+      this.modais = modais;
+    });  
+  }
 
   ngOnInit() {
     
