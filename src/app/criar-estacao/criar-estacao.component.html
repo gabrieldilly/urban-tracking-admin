@@ -1,23 +1,18 @@
 <h1 mat-dialog-title>Criar Estacao</h1>
 <div mat-dialog-content>
   <div layout="row">
-  <label>Tipo</label>
   <mat-form-field>
-    <input matInput [(ngModel)]="nome">
+    <input matInput [(ngModel)]="nome" placeholder="Tipo">
   </mat-form-field>
-  <label>Modal</label>
-  <mat-form-field >
-    <select placeholder="Modal">
-      <option value="metro">Metrô</option>
-      <option value="brt">BRT</option>
-      <option value="vlt">VLT</option>
-      <option value="trem">Trem</option>
-      <option value="onibus">Ônibus</option>
-    </select>
+  <mat-form-field required>
+    <mat-select placeholder="Modal">
+      <mat-option *ngFor="let food of modais" [value]="food.value">
+        {{ food.viewValue }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
-  <label>Endereço</label>
   <mat-form-field>
-    <input matInput [(ngModel)]="endereco">
+    <input matInput [(ngModel)]="endereco" placeholder="Enderço">
   </mat-form-field>
   </div>
 </div>

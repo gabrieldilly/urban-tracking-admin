@@ -60,4 +60,8 @@ export class EstacoesComponent implements OnInit {
       })
     });
   }
+
+  editarEstacao(estacao) {
+    console.log(estacao);
+  }
 }

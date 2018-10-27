@@ -68,4 +68,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'estacoes',       component: EstacoesComponent },
     { path: 'linhas',         component: LinhasComponent },
     { path: 'composicoes',    component: ComposicoesComponent },
+    { path: '',               redirectTo: 'modais', pathMatch: 'full' },
 ];

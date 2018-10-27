@@ -29,6 +29,7 @@ import {
   MatTooltipModule,
   MatDialogModule,
   MatFormFieldModule,
+  MatSelectModule,
 } from '@angular/material';
 
 @NgModule({
@@ -42,7 +43,8 @@ import {
     MatTooltipModule,
     MatDialogModule, 
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   declarations: [
     DashboardComponent,

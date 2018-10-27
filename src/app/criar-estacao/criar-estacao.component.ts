@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-criar-estacao',
@@ -10,6 +10,14 @@ export class CriarEstacaoComponent implements OnInit {
   nome: string;
   endereco: string;
   modal: string;
+
+  modais = [
+    {value: 'steak-0', viewValue: 'Metrô'},
+    {value: 'pizza-1', viewValue: 'BRT'},
+    {value: 'tacos-2', viewValue: 'VLT'},
+    {value: 'tacos-2', viewValue: 'Trem'},
+    {value: 'tacos-2', viewValue: 'Ônibus'}
+  ];
 
   constructor(
     public dialogRef: MatDialogRef<CriarEstacaoComponent>
