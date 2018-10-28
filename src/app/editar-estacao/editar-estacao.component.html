@@ -1,3 +1,16 @@
-<p>
-  editar-estacao works!
-</p>
+<h1 mat-dialog-title>Editar Estação</h1>
+<div mat-dialog-content>
+  <label>Nome</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nome">
+  </mat-form-field>
+  <label>Linhas</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="linhas">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="atualizarEstacao()">Atualizar</button>
+</div>
+

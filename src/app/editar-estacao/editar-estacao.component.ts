@@ -7,8 +7,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./editar-estacao.component.scss']
 })
 export class EditarEstacaoComponent implements OnInit {
-  modal: any;
+  estacao: any;
   nome: string;
+  linhas: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -18,17 +19,18 @@ export class EditarEstacaoComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.modal = this.data.modal;
-    this.nome = this.modal.nome;
+    this.estacao = this.data.estacao;
+    this.nome = this.estacao.nome;
   }
     
-  onNoClick(): void {
+  onCancelar(): void {
     console.log(this.dialogRef);
     this.dialogRef.close();
   }
 
-  atualizarModal() {
-    this.modal.nome = this.nome;
+  atualizarEstacao() {
+    this.estacao.nome = this.nome;
+    this.estacao.linhas = this.linhas;
   }
 
 }

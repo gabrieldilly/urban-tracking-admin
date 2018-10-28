@@ -18,9 +18,10 @@ import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
 import { ModaisService } from '../../services/modais.service';
 import { EstacoesService } from '../../services/estacoes.service';
-import { EditarModalComponent } from '../../editar-modal/editar-modal.component';
 import { CriarModalComponent } from '../../criar-modal/criar-modal.component';
+import { EditarModalComponent } from '../../editar-modal/editar-modal.component';
 import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
+import { EditarEstacaoComponent } from 'app/editar-estacao/editar-estacao.component';
 
 import {
   MatButtonModule,
@@ -59,18 +60,20 @@ import {
     EstacoesComponent,
     LinhasComponent,
     ComposicoesComponent,
-    EditarModalComponent,
     CriarModalComponent,
-    CriarEstacaoComponent
+    EditarModalComponent,
+    CriarEstacaoComponent,
+    EditarEstacaoComponent
   ],
   providers: [
     ModaisService,
     EstacoesService
   ],
   entryComponents: [
-    EditarModalComponent,
     CriarModalComponent,
-    CriarEstacaoComponent
+    EditarModalComponent,
+    CriarEstacaoComponent,
+    EditarEstacaoComponent
   ]
 })
 

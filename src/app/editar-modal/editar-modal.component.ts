@@ -23,7 +23,7 @@ export class EditarModalComponent implements OnInit{
     this.nome = this.modal.nome;
   }
     
-  onNoClick(): void {
+  onCancelar(): void {
     console.log(this.dialogRef);
     this.dialogRef.close();
   }

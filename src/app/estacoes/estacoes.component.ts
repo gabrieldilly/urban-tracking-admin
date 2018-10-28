@@ -3,6 +3,7 @@ import { ModaisService } from '../services/modais.service';
 import { EstacoesService } from '../services/estacoes.service';
 import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
 import { MatDialog } from '@angular/material';
+import { EditarEstacaoComponent } from 'app/editar-estacao/editar-estacao.component';
 
 @Component({
   selector: 'app-estacoes',
@@ -43,6 +44,17 @@ export class EstacoesComponent implements OnInit {
         this.filtradas.push(estacao);
   }
 
+  editarEstacao(estacao) {
+    const dialogRef = this.dialog.open(EditarEstacaoComponent, {
+      width: '400px',
+      data: {estacao: estacao}
+    })
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
+  }
+  
   criarEstacao() {
     const dialogRef = this.dialog.open(CriarEstacaoComponent, {
       width: '250px',
@@ -59,9 +71,5 @@ export class EstacoesComponent implements OnInit {
         totalComposicoes: 15
       })
     });
-  }
-
-  editarEstacao(estacao) {
-    console.log(estacao);
   }
 }
