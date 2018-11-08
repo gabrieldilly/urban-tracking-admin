@@ -26,7 +26,7 @@ export class EstacoesComponent implements OnInit {
         this.Modais.loadModais()
           .then((modais) => {
             console.log(modais);
-            this.selecionarEstacao(modais[0].id);
+            this.selecionarModal(modais[0].id);
           });
       });
     
@@ -35,7 +35,7 @@ export class EstacoesComponent implements OnInit {
   ngOnInit() {
   }
 
-  selecionarEstacao(idModal: number) {
+  selecionarModal(idModal: number) {
     console.log(idModal);
     this.selecionada = idModal;
     this.filtradas = [];

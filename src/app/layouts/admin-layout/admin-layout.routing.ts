@@ -12,6 +12,7 @@ import { ModaisComponent } from '../../modais/modais.component';
 import { EstacoesComponent } from '../../estacoes/estacoes.component';
 import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
+import { VerEstacaoComponent } from '../../ver-estacao/ver-estacao.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -56,17 +57,18 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'modais',         component: ModaisComponent },
-    { path: 'estacoes',       component: EstacoesComponent },
-    { path: 'linhas',         component: LinhasComponent },
-    { path: 'composicoes',    component: ComposicoesComponent },
-    { path: '',               redirectTo: 'modais', pathMatch: 'full' },
+    { path: 'dashboard',            component: DashboardComponent },
+    { path: 'user-profile',         component: UserProfileComponent },
+    { path: 'table-list',           component: TableListComponent },
+    { path: 'typography',           component: TypographyComponent },
+    { path: 'icons',                component: IconsComponent },
+    { path: 'maps',                 component: MapsComponent },
+    { path: 'notifications',        component: NotificationsComponent },
+    { path: 'upgrade',              component: UpgradeComponent },
+    { path: 'modais',               component: ModaisComponent },
+    { path: 'estacoes',             component: EstacoesComponent },
+    { path: 'estacoes/ver/:id',     component: VerEstacaoComponent },
+    { path: 'linhas',               component: LinhasComponent },
+    { path: 'composicoes',          component: ComposicoesComponent },
+    { path: '',                     redirectTo: 'modais', pathMatch: 'full' },
 ];

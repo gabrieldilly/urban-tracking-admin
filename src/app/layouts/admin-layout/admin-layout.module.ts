@@ -22,6 +22,7 @@ import { CriarModalComponent } from '../../criar-modal/criar-modal.component';
 import { EditarModalComponent } from '../../editar-modal/editar-modal.component';
 import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
 import { EditarEstacaoComponent } from 'app/editar-estacao/editar-estacao.component';
+import { VerEstacaoComponent } from '../../ver-estacao/ver-estacao.component';
 
 import {
   MatButtonModule,
@@ -63,7 +64,8 @@ import {
     CriarModalComponent,
     EditarModalComponent,
     CriarEstacaoComponent,
-    EditarEstacaoComponent
+    EditarEstacaoComponent,
+    VerEstacaoComponent
   ],
   providers: [
     ModaisService,

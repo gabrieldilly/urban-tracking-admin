@@ -12,7 +12,7 @@ export class ModaisService {
     public httpClient: HttpClient
   ) {
     this.list = [];
-    this.icons = ['directions_subway', 'directions_bus', 'directions_railway', 'directions_railway', 'directions_bus'];
+    this.icons = ['directions_subway', 'directions_railway', 'directions_railway', 'directions_bus', 'directions_bus', 'directions_boat'];
   }
 
   loadModais() {
