@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Criar Composição</h1>
+<div mat-dialog-content>
+  <div layout="row">
+  <mat-form-field>
+    <input matInput [(ngModel)]="codigo" placeholder="Codigo">
+  </mat-form-field>
+  <mat-form-field required>
+    <mat-select placeholder="Modal">
+      <mat-option *ngFor="let food of modais" [value]="food.value">
+        {{ food.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field required>
+      <mat-select placeholder="Linha">
+        <mat-option *ngFor="let food of modais" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="criarComposicao()">Confirmar</button>
+</div>
+

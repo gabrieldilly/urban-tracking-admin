@@ -26,6 +26,10 @@ import { MatDialog } from '@angular/material';
 import { CriarModalComponent } from './criar-modal/criar-modal.component';
 import { CriarEstacaoComponent } from './criar-estacao/criar-estacao.component';
 import { EditarEstacaoComponent } from './editar-estacao/editar-estacao.component';
+import { CriarLinhaComponent } from './criar-linha/criar-linha.component';
+import { EditarLinhaComponent } from './editar-linha/editar-linha.component';
+import { EditarComposicaoComponent } from './editar-composicao/editar-composicao.component';
+import { CriarComposicaoComponent } from './criar-composicao/criar-composicao.component';
 
 @NgModule({
   imports: [

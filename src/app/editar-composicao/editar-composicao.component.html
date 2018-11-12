@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Editar Composição</h1>
+<div mat-dialog-content>
+  <label>Nome</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nome">
+  </mat-form-field>
+  <label>Linha</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="linha">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="atualizarComposicao()">Atualizar</button>
+</div>

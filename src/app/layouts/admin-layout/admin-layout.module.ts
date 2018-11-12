@@ -18,11 +18,18 @@ import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
 import { ModaisService } from '../../services/modais.service';
 import { EstacoesService } from '../../services/estacoes.service';
+import { LinhasService } from 'app/services/linhas.service';
 import { CriarModalComponent } from '../../criar-modal/criar-modal.component';
 import { EditarModalComponent } from '../../editar-modal/editar-modal.component';
 import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
 import { EditarEstacaoComponent } from 'app/editar-estacao/editar-estacao.component';
 import { VerEstacaoComponent } from '../../ver-estacao/ver-estacao.component';
+import { EditarLinhaComponent } from 'app/editar-linha/editar-linha.component';
+import { CriarLinhaComponent } from 'app/criar-linha/criar-linha.component';
+import { VerLinhaComponent } from '../../ver-linha/ver-linha.component';
+import { EditarComposicaoComponent } from 'app/editar-composicao/editar-composicao.component';
+import { CriarComposicaoComponent } from 'app/criar-composicao/criar-composicao.component';
+import { VerComposicaoComponent } from 'app/ver-composicao/ver-composicao.component';
 
 import {
   MatButtonModule,
@@ -65,17 +72,28 @@ import {
     EditarModalComponent,
     CriarEstacaoComponent,
     EditarEstacaoComponent,
-    VerEstacaoComponent
+    VerEstacaoComponent,
+    CriarLinhaComponent,
+    EditarLinhaComponent,
+    VerLinhaComponent,
+    CriarComposicaoComponent,
+    EditarComposicaoComponent,
+    VerComposicaoComponent
   ],
   providers: [
     ModaisService,
-    EstacoesService
+    EstacoesService,
+    LinhasService
   ],
   entryComponents: [
     CriarModalComponent,
     EditarModalComponent,
     CriarEstacaoComponent,
-    EditarEstacaoComponent
+    EditarEstacaoComponent,
+    CriarLinhaComponent,
+    EditarLinhaComponent,
+    CriarComposicaoComponent,
+    EditarComposicaoComponent
   ]
 })
 

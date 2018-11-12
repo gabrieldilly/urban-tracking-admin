@@ -5,11 +5,11 @@ import { EditarEstacaoComponent } from '../editar-estacao/editar-estacao.compone
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-ver-estacao',
-  templateUrl: './ver-estacao.component.html',
-  styleUrls: ['./ver-estacao.component.scss']
+  selector: 'app-ver-composicao',
+  templateUrl: './ver-composicao.component.html',
+  styleUrls: ['./ver-composicao.component.scss']
 })
-export class VerEstacaoComponent implements OnInit, OnDestroy {
+export class VerComposicaoComponent implements OnInit, OnDestroy {
   estacao: any;
   linhas: any[];
   private sub: any;
@@ -56,3 +56,4 @@ export class VerEstacaoComponent implements OnInit, OnDestroy {
 
 
 }
+

@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Criar Linha</h1>
+<div mat-dialog-content>
+  <div layout="row">
+  <mat-form-field>
+    <input matInput [(ngModel)]="nome" placeholder="Nome">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="rota" placeholder="Nome 1a Rota">
+  </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="criarLinha()">Confirmar</button>
+</div>
+

@@ -13,6 +13,9 @@ import { EstacoesComponent } from '../../estacoes/estacoes.component';
 import { LinhasComponent } from '../../linhas/linhas.component';
 import { ComposicoesComponent } from '../../composicoes/composicoes.component';
 import { VerEstacaoComponent } from '../../ver-estacao/ver-estacao.component';
+import { VerLinhaComponent } from '../../ver-linha/ver-linha.component';
+import { VerComposicaoComponent } from '../../ver-composicao/ver-composicao.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -68,6 +71,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'modais',               component: ModaisComponent },
     { path: 'estacoes',             component: EstacoesComponent },
     { path: 'estacoes/ver/:id',     component: VerEstacaoComponent },
+    { path: 'linhas/ver/:id',       component: VerLinhaComponent },
+    { path: 'composicoes/ver/:id',  component: VerComposicaoComponent },
     { path: 'linhas',               component: LinhasComponent },
     { path: 'composicoes',          component: ComposicoesComponent },
     { path: '',                     redirectTo: 'modais', pathMatch: 'full' },

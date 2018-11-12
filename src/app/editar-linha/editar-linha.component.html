@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Editar Linha</h1>
+<div mat-dialog-content>
+  <label>Nome</label>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nome">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelar()">Cancelar</button>
+  <button mat-button mat-dialog-close (click)="atualizarLinha()">Atualizar</button>
+</div>

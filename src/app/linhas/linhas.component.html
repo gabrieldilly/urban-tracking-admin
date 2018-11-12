@@ -1,3 +1,64 @@
-<p>
-  linhas works!
-</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-button class="btn btn-success pull-right" (click)="criarLinha()">
+                    Criar Linha
+                </button>
+            </div>
+        </div>            
+    </div>     
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Linhas</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item" *ngFor="let modal of Modais.list; first as isFirst">
+                                        <a mat-button class="nav-link" data-toggle="tab" 
+                                        href="#estacao{{modal.id}}" [ngClass]="{active: isFirst}"
+                                        (click)="selecionarModal(modal.id)">
+                                        <i class="material-icons">{{modal.icon}}</i> {{modal.nome}}
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class="text-primary">
+                                  <th scope="col">ID</th>
+                                  <th scope="col">Nome</th>
+                                  <th scope="col">Rotas</th>
+                                  <th scope="col">Composições</th>
+                                  <!-- <th scope="col"></th> -->
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let linha of filtradas">
+                                    <td>{{linha.id}}</td>
+                                    <td>
+                                        <a [routerLink]="['/linhas/ver', linha.id]">
+                                          {{linha.nome}}
+                                        </a>
+                                    </td>
+                                    <td>{{linha.rotas.length}}</td>
+                                    <td>{{linha.rotas.length}}</td>
+                                    <!-- <td><button mat-icon-button class="btn" (click)="editarEstacao(estacao)">
+                                        <i class="material-icons">edit</i>
+                                    </button></td> -->
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
