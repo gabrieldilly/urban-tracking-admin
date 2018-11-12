@@ -12,8 +12,7 @@ export class LinhasService {
     
     this.list = [];
   }
-
-  loadLinha(){
+  loadLinhas(){
     return new Promise((resolve, reject) => {
       if (this.list.length === 0) {
         this.httpClient.get(`${environment.apiURL}/linhas`).toPromise()
@@ -28,4 +27,7 @@ export class LinhasService {
     });
   }
 
+  loadLinha(id){
+    return this.httpClient.get(`${environment.apiURL}/linhas/${id}`).toPromise();
+  }
 }

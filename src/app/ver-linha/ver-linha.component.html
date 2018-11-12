@@ -8,11 +8,16 @@
         </div>
         <div class="col-5 col-md-5">
             <h3 class="mt-1">{{linha.nome}}</h3>
-            <p class="font-weight-bold">Rota:</p>
+            <mat-form-field required>
+                <mat-select placeholder="Rota">
+                  <mat-option *ngFor="let rota of linha.rotas" [value]="rota.nome" >
+                    {{ rota.nome }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             <!--<h3 class="mt-1">{{pegar nome rota}}</h3> adicionar um icone + para adicionar 
                 outra rota e uma seta pra escolher de qual rota ver as informações -->
-            <p class="font-weight-bold">Modal:</p>
-            <h3 class="mt-1">{{linha.modal.nome}}</h3>
+            <p>Modal: {{linha.modal.nome}}</p>
         </div>
         <div class="col-md-6">
           <button mat-button class="btn btn-danger pull-right" (click)="excluirLinha(linha)">

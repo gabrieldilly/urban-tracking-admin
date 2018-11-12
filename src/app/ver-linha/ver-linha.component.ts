@@ -24,6 +24,15 @@ export class VerLinhaComponent implements OnInit, OnDestroy {
     this.linha = {};
     this.sub = this.route.params.subscribe(params => {
       this.linha.id = parseInt(params.id);
+
+      this.Linhas.loadLinha(this.linha.id)
+      .then(data => {
+        console.log(data);
+        this.linha = data;
+      })
+      .catch(err => console.log(err));
+
+      
     });
   }
 

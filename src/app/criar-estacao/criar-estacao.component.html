@@ -1,19 +1,20 @@
 <h1 mat-dialog-title>Criar Estacao</h1>
 <div mat-dialog-content>
   <div layout="row">
-  <mat-form-field>
-    <input matInput [(ngModel)]="nome" placeholder="Nome">
-  </mat-form-field>
-  <mat-form-field required>
-    <mat-select placeholder="Modal">
-      <mat-option *ngFor="let food of modais" [value]="food.value">
-        {{ food.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="endereco" placeholder="Enderço">
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="nome" placeholder="Nome">
+    </mat-form-field>
+    <mat-form-field required>
+      <mat-select placeholder="Modal">
+        <mat-option *ngFor="let food of modais" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <table class="table">
+        <th scope='col'><input matInput [(ngModel)]="latitude" placeholder="Latitude"></th>
+        <th scope='col'><input matInput [(ngModel)]="longitude" placeholder="Longitude"></th>
+    </table>
   </div>
 </div>
 <div mat-dialog-actions>

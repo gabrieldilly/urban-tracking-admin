@@ -21,7 +21,7 @@ export class LinhasComponent implements OnInit {
     this.Modais = Modais;
     this.Linhas = Linhas;
     
-    this.Linhas.loadLinha()
+    this.Linhas.loadLinhas()
       .then((linhas) => {
         this.Modais.loadModais()
           .then((modais) => {
