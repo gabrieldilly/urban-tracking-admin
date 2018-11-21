@@ -21,7 +21,7 @@ export class EstacoesService {
         this.httpClient.get(`${environment.apiURL}/estacoes`).toPromise()
           .then((response: any[]) => {
             this.list = response;
-  
+
             for (let estacao of this.list) {
               estacao.totalLinhas = 10;
             }

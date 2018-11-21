@@ -38,19 +38,14 @@
                                   <th scope="col">Última corrida</th>
                                   <th scope="col">Hora</th>
                                   <th scope="col">Em corrida?</th>
-                                  <!-- <th scope="col"></th> -->
                               </thead>
                               <tbody>
                                   <tr *ngFor="let composicao of filtradas">
                                     <td>
-                                        <a [routerLink]="['/composicoes/ver', composicoes.id]">
-                                          <!--{{composicao.codigo}}-->
+                                        <a [routerLink]="['/composicoes/ver', composicao.id]">
+                                          {{composicao.nome}}
                                         </a>
                                     </td>
-                                    <td>{{composicao.linha.nome}}</td>
-                                    <!-- <td><button mat-icon-button class="btn" (click)="editarEstacao(estacao)">
-                                        <i class="material-icons">edit</i>
-                                    </button></td> -->
                                   </tr>
                               </tbody>
                           </table>

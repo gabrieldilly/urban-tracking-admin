@@ -39,7 +39,7 @@ export class LinhasComponent implements OnInit {
     this.selecionada = idModal;
     this.filtradas = [];
     for (let linha of this.Linhas.list)
-      if (parseInt(linha.idModal) === idModal) 
+      if (parseInt(linha.idmodal) === idModal) 
         this.filtradas.push(linha);
   }
 

@@ -1,3 +1,4 @@
+import { ComposicoesService } from './../services/composicoes.service';
 import { Component, OnInit } from '@angular/core';
 import { ModaisService } from '../services/modais.service';
 import { EstacoesService } from '../services/estacoes.service';
@@ -19,9 +20,15 @@ export class ComposicoesComponent implements OnInit {
   constructor(
     public Modais: ModaisService, 
     public Estacoes: EstacoesService,
+    public Composicoes: ComposicoesService,
     public dialog: MatDialog) {
     this.Modais = Modais;
     this.Estacoes = Estacoes;
+
+    this.Composicoes.loadComposicoes()
+    .then((composicoes) => {
+
+    })
     
     this.Estacoes.loadEstacoes()
       .then((estacoes) => {
@@ -41,9 +48,9 @@ export class ComposicoesComponent implements OnInit {
     console.log(idModal);
     this.selecionada = idModal;
     this.filtradas = [];
-    for (let estacao of this.Estacoes.list)
-      if (parseInt(estacao.idModal) === idModal) 
-        this.filtradas.push(estacao);
+    for (let composicao of this.Composicoes.list)
+      if (parseInt(composicao.idModal) === idModal) 
+        this.filtradas.push(composicao);
   }
 
   editarEstacao(estacao) {
@@ -57,7 +64,7 @@ export class ComposicoesComponent implements OnInit {
     });
   }
   
-  criarEstacao() {
+  criarComposicao() {
     const dialogRef = this.dialog.open(CriarComposicaoComponent, {
       width: '250px',
     })

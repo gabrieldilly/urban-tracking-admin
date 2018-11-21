@@ -40,8 +40,10 @@ export class EstacoesComponent implements OnInit {
     this.selecionada = idModal;
     this.filtradas = [];
     for (let estacao of this.Estacoes.list)
-      if (parseInt(estacao.idModal) === idModal) 
+      if (parseInt(estacao.idmodal) === idModal) 
         this.filtradas.push(estacao);
+    
+    console.log(this.filtradas);
   }
 
   editarEstacao(estacao) {
