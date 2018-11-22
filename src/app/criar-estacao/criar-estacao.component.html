@@ -5,15 +5,16 @@
       <input matInput [(ngModel)]="nome" placeholder="Nome">
     </mat-form-field>
     <mat-form-field required>
-      <mat-select placeholder="Modal">
-        <mat-option *ngFor="let food of modais" [value]="food.value">
-          {{ food.viewValue }}
+      <mat-select placeholder="Modal" [(value)]="idmodal">
+        <mat-option></mat-option>
+        <mat-option *ngFor="let modal of Modais.list" [value]="modal.id">
+          {{ modal.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <table class="table">
-        <th scope='col'><input matInput [(ngModel)]="latitude" placeholder="Latitude"></th>
-        <th scope='col'><input matInput [(ngModel)]="longitude" placeholder="Longitude"></th>
+        <th scope='col'><input matInput [(ngModel)]="lat" placeholder="Latitude"></th>
+        <th scope='col'><input matInput [(ngModel)]="lng" placeholder="Longitude"></th>
     </table>
   </div>
 </div>

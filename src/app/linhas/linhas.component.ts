@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModaisService } from '../services/modais.service';
-import { CriarLinhaComponent } from 'app/criar-linha/criar-linha.component';
+import { CriarLinhaComponent } from '../criar-linha/criar-linha.component';
 import { MatDialog } from '@angular/material';
-import { EditarLinhaComponent } from 'app/editar-linha/editar-linha.component';
-import { LinhasService } from 'app/services/linhas.service';
+import { EditarLinhaComponent } from '../editar-linha/editar-linha.component';
+import { LinhasService } from '../services/linhas.service';
 
 @Component({
   selector: 'app-linhas',
@@ -34,12 +34,11 @@ export class LinhasComponent implements OnInit {
   ngOnInit() {
   }
 
-  selecionarModal(idModal: number) {
-    // console.log(idModal);
-    this.selecionada = idModal;
+  selecionarModal(idmodal: number) {
+    this.selecionada = idmodal;
     this.filtradas = [];
     for (let linha of this.Linhas.list)
-      if (parseInt(linha.idmodal) === idModal) 
+      if (parseInt(linha.idmodal) === idmodal) 
         this.filtradas.push(linha);
   }
 
@@ -63,12 +62,11 @@ export class LinhasComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(data);
 
-      this.Modais.list.push({
-        nome: data.nome,
-        totalLinhas: 10,
-        totalEstacoes: 20,
-        totalComposicoes: 15
-      })
+      if (data && data.nome && data.idmodal) {
+        this.Linhas.criarLinha(data);
+      }
+      this.selecionarModal(this.selecionada);
     });
   }
+
 }

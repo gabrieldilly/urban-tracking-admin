@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ModaisService } from '../services/modais.service';
 
 @Component({
   selector: 'app-criar-estacao',
@@ -8,23 +9,22 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class CriarEstacaoComponent implements OnInit {
   nome: string;
-  endereco: string;
-  modal: string;
-
-  modais = [
-    {value: 'steak-0', viewValue: 'Metrô'},
-    {value: 'pizza-1', viewValue: 'BRT'},
-    {value: 'tacos-2', viewValue: 'VLT'},
-    {value: 'tacos-2', viewValue: 'Trem'},
-    {value: 'tacos-2', viewValue: 'Ônibus'}
-  ];
+  lat: number;
+  lng: number;
+  idmodal: number;
 
   constructor(
-    public dialogRef: MatDialogRef<CriarEstacaoComponent>
-  ) {}
+    public dialogRef: MatDialogRef<CriarEstacaoComponent>,
+    public Modais: ModaisService
+  ) {
+    this.Modais = Modais;
+    this.Modais.loadModais()
+    .then((modais) => {
+      console.log(modais);
+    });
+  }
   
   ngOnInit() {
-    
   }
     
   onCancelar(): void {
@@ -32,10 +32,12 @@ export class CriarEstacaoComponent implements OnInit {
   }
   
   criarEstacao() {
-    // Criar Novo Modal no BD
-    this.dialogRef.close({nome: this.nome}),
-    this.dialogRef.close({endereco: this.endereco}),
-    this.dialogRef.close({modal: this.modal});
+    this.dialogRef.close({
+      nome: this.nome,
+      idmodal: this.idmodal,
+      lat: this.lat,
+      lng: this.lng
+    });
   }
 
 }

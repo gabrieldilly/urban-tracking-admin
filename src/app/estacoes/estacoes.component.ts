@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModaisService } from '../services/modais.service';
 import { EstacoesService } from '../services/estacoes.service';
-import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
+import { CriarEstacaoComponent } from '../criar-estacao/criar-estacao.component';
 import { MatDialog } from '@angular/material';
-import { EditarEstacaoComponent } from 'app/editar-estacao/editar-estacao.component';
+import { EditarEstacaoComponent } from '../editar-estacao/editar-estacao.component';
 
 @Component({
   selector: 'app-estacoes',
@@ -35,15 +35,12 @@ export class EstacoesComponent implements OnInit {
   ngOnInit() {
   }
 
-  selecionarModal(idModal: number) {
-    console.log(idModal);
-    this.selecionada = idModal;
+  selecionarModal(idmodal: number) {
+    this.selecionada = idmodal;
     this.filtradas = [];
     for (let estacao of this.Estacoes.list)
-      if (parseInt(estacao.idmodal) === idModal) 
+      if (parseInt(estacao.idmodal) === idmodal) 
         this.filtradas.push(estacao);
-    
-    console.log(this.filtradas);
   }
 
   editarEstacao(estacao) {
@@ -66,12 +63,16 @@ export class EstacoesComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(data);
 
-      this.Modais.list.push({
-        nome: data.nome,
-        totalLinhas: 10,
-        totalEstacoes: 20,
-        totalComposicoes: 15
-      })
+      if (data && data.nome && data.idmodal) {
+        this.Estacoes.criarEstacao(data)
+          .then(() => {
+            this.Estacoes.loadEstacoes(true);
+            // TODO: fix this refresh
+            this.selecionarModal(this.selecionada);
+          });
+      }
+      this.selecionarModal(this.selecionada);
     });
   }
+
 }

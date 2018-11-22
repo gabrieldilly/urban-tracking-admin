@@ -15,9 +15,9 @@ export class EstacoesService {
     this.linhas = {};
   }
 
-  loadEstacoes() {
+  loadEstacoes(forceReload?) {
     return new Promise((resolve, reject) => {
-      if (this.list.length === 0) {
+      if (this.list.length === 0 || forceReload) {
         this.httpClient.get(`${environment.apiURL}/estacoes`).toPromise()
           .then((response: any[]) => {
             this.list = response;
@@ -56,6 +56,17 @@ export class EstacoesService {
       } else {
         resolve(this.linhas[estacaoId]);
       }      
+    });   
+  }
+
+  criarEstacao(estacao) {
+    return new Promise((resolve, reject) => {
+      this.httpClient.post(`${environment.apiURL}/estacoes`, estacao).toPromise()
+        .then((response: any) => {
+          console.log(response);
+          resolve(response);
+        })
+        .catch((err) => reject(err));
     });   
   }
 

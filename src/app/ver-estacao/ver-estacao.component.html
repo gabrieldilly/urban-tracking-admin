@@ -8,9 +8,10 @@
           </div>
           <div class="col-5 col-md-5">
             <h3 class="mt-1">{{estacao.nome}}</h3>
-            <p class="font-weight-bold">Endereço:</p>
-            <p class="font-weight-bold">Modal:</p>
-            <!--<h3 class="mt-1">{{estacao.modal.nome}}</h3>-->
+            <!-- <p class="font-weight-bold">Endereço:</p> -->
+            <p class="font-weight-bold">
+                Modal: {{modal.nome}}
+            </p>
         </div>
           <div class="col-md-6">
             <button mat-button class="btn btn-danger pull-right" (click)="excluirEstacao(estacao)">

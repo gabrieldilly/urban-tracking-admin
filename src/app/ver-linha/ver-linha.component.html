@@ -9,8 +9,8 @@
         <div class="col-5 col-md-5">
             <h3 class="mt-1">{{linha.nome}}</h3>
             <mat-form-field required>
-                <mat-select placeholder="Rota">
-                  <mat-option *ngFor="let rota of linha.rotas" [value]="rota.nome" >
+                <mat-select placeholder="Rota" [(value)]="rota_selecionada">
+                  <mat-option *ngFor="let rota of linha.rotas; index as i" [value]="i" >
                     {{ rota.nome }}
                   </mat-option>
                 </mat-select>
@@ -29,38 +29,39 @@
         </div>
       </div>
       <div class="row">
-            <div class="col-12 col-md-4 bg-white linhas">
+            <div class="col-12 col-md-3 bg-white estacoes">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="text-primary">
                             <th scope="col">Estação</th>
-                            <th scope="col">Endereço</th>
+                            <!-- <th scope="col">Endereço</th> -->
                         </thead>
                         <tbody>
-                            <tr *ngFor="let linha of linhas">
-                                <td>{{linha.nome}}</td>
+                            <tr *ngFor="let estacao of rotas[rota_selecionada].trajeto">
+                                <td>{{estacao.nome}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="col-md-1">
-            </div>  
-            <div class="col-12 col-md-4 bg-white linhas">
-                    <h4 class="text-center p-3">Trajeto</h4>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="text-primary">
-                                <th scope="col">Estação</th>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let linha of linhas">
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="col-12 col-md-3 bg-white ml-3">
+                <h4 class="text-center p-3">Trajeto</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="text-primary">
+                            <th scope="col">Estação</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let linha of linhas">
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
+            <div class="col bg-white mx-4">
+                <h4 class="text-center p-3">Mapa</h4>
+            </div>
         </div>
     </div>     
 </div>

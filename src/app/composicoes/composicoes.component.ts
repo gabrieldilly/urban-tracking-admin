@@ -2,11 +2,11 @@ import { ComposicoesService } from './../services/composicoes.service';
 import { Component, OnInit } from '@angular/core';
 import { ModaisService } from '../services/modais.service';
 import { EstacoesService } from '../services/estacoes.service';
-import { CriarEstacaoComponent } from 'app/criar-estacao/criar-estacao.component';
+import { CriarEstacaoComponent } from '../criar-estacao/criar-estacao.component';
 import { MatDialog } from '@angular/material';
-import { EditarEstacaoComponent } from 'app/editar-estacao/editar-estacao.component';
-import { EditarComposicaoComponent } from 'app/editar-composicao/editar-composicao.component';
-import { CriarComposicaoComponent } from 'app/criar-composicao/criar-composicao.component';
+import { EditarEstacaoComponent } from '../editar-estacao/editar-estacao.component';
+import { EditarComposicaoComponent } from '../editar-composicao/editar-composicao.component';
+import { CriarComposicaoComponent } from '../criar-composicao/criar-composicao.component';
 
 @Component({
   selector: 'app-composicoes',
@@ -19,19 +19,12 @@ export class ComposicoesComponent implements OnInit {
 
   constructor(
     public Modais: ModaisService, 
-    public Estacoes: EstacoesService,
     public Composicoes: ComposicoesService,
     public dialog: MatDialog) {
     this.Modais = Modais;
-    this.Estacoes = Estacoes;
-
-    this.Composicoes.loadComposicoes()
-    .then((composicoes) => {
-
-    })
     
-    this.Estacoes.loadEstacoes()
-      .then((estacoes) => {
+    this.Composicoes.loadComposicoes()
+      .then((composicoes) => {
         this.Modais.loadModais()
           .then((modais) => {
             console.log(modais);
@@ -44,19 +37,18 @@ export class ComposicoesComponent implements OnInit {
   ngOnInit() {
   }
 
-  selecionarModal(idModal: number) {
-    console.log(idModal);
-    this.selecionada = idModal;
+  selecionarModal(idmodal: number) {
+    this.selecionada = idmodal;
     this.filtradas = [];
     for (let composicao of this.Composicoes.list)
-      if (parseInt(composicao.idModal) === idModal) 
+      if (parseInt(composicao.idmodal) === idmodal) 
         this.filtradas.push(composicao);
   }
 
-  editarEstacao(estacao) {
+  editarComposicao(composicao) {
     const dialogRef = this.dialog.open(EditarComposicaoComponent, {
       width: '400px',
-      data: {estacao: estacao}
+      data: {composicao: composicao}
     })
 
     dialogRef.afterClosed().subscribe(() => {
@@ -73,12 +65,15 @@ export class ComposicoesComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(data);
 
-      this.Modais.list.push({
-        nome: data.nome,
-        totalLinhas: 10,
-        totalEstacoes: 20,
-        totalComposicoes: 15
-      })
+      if (data && data.cod_rastreador && data.idmodal) {
+        this.Composicoes.criarComposicao(data)
+          .then(() => {
+            this.Composicoes.loadComposicoes(true);
+            // TODO: fix this refresh
+            this.selecionarModal(this.selecionada);
+          });
+      }
     });
   }
+
 }

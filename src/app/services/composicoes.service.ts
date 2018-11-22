@@ -15,16 +15,13 @@ export class ComposicoesService {
     this.linhas = {};
   }
 
-  loadComposicoes() {
+  loadComposicoes(forceReload?) {
     return new Promise((resolve, reject) => {
-      if (this.list.length === 0) {
+      if (this.list.length === 0 || forceReload) {
         this.httpClient.get(`${environment.apiURL}/composicoes`).toPromise()
           .then((response: any[]) => {
             this.list = response;
-  
-            for (let estacao of this.list) {
-              estacao.totalLinhas = 10;
-            }
+            console.log('Composicoes', response);
             resolve(this.list);
           })
           .catch((err) => reject(err));
@@ -34,9 +31,9 @@ export class ComposicoesService {
     });   
   }
 
-  loadComposicao(composicaoCodigo: number) {
+  loadComposicao(composicaoId: number) {
     return new Promise((resolve, reject) => {
-      this.httpClient.get(`${environment.apiURL}/composicoes/${composicaoCodigo}`).toPromise()
+      this.httpClient.get(`${environment.apiURL}/composicoes/${composicaoId}`).toPromise()
         .then((response: any[]) => {
           resolve(response);
         })
@@ -44,18 +41,14 @@ export class ComposicoesService {
     });   
   }
 
-  loadLinhas(estacaoId: number) {
+  criarComposicao(composicao) {
     return new Promise((resolve, reject) => {
-      if (!this.linhas[estacaoId]) {
-        this.httpClient.get(`${environment.apiURL}/linhas/estacao/${estacaoId}`).toPromise()
-          .then((response: any[]) => {
-            this.linhas[estacaoId] = response;
-            resolve(response);
-          })
-          .catch((err) => reject(err));
-      } else {
-        resolve(this.linhas[estacaoId]);
-      }      
+      this.httpClient.post(`${environment.apiURL}/composicoes`, composicao).toPromise()
+        .then((response: any) => {
+          console.log(response);
+          resolve(response);
+        })
+        .catch((err) => reject(err));
     });   
   }
 

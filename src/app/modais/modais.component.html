@@ -10,7 +10,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4" *ngFor="let modal of modais">
+            <div class="col-md-4" *ngFor="let modal of Modais.list">
                 <div class="card card-chart">
                     <div class="card-header card-header-danger">
                         <div class="ct-chart" id="completedTasksChart"></div>
@@ -24,11 +24,11 @@
                         <p class="card-category">Total de Estações: {{modal.totalEstacoes}}</p>
                         <p class="card-category">Total de Composições: {{modal.totalComposicoes}}</p>
                     </div>
-                    <div class="card-footer">
+                    <!-- <div class="card-footer">
                         <div class="stats">
                             <i class="material-icons">access_time</i> campaign sent 2 days ago
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>          

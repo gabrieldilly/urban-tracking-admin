@@ -43,9 +43,11 @@
                                   <tr *ngFor="let composicao of filtradas">
                                     <td>
                                         <a [routerLink]="['/composicoes/ver', composicao.id]">
-                                          {{composicao.nome}}
+                                          {{composicao.cod_rastreador}}
                                         </a>
                                     </td>
+                                    <td></td>
+                                    <td>{{composicao.ultima_atualizacao | date: 'short'}}</td>
                                   </tr>
                               </tbody>
                           </table>

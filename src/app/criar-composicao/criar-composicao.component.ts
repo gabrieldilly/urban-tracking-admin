@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ModaisService } from '../services/modais.service';
+import { LinhasService } from '../services/linhas.service';
 
 @Component({
   selector: 'app-criar-composicao',
@@ -8,23 +10,38 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class CriarComposicaoComponent implements OnInit {
   codigo: any;
-  linha: string;
-  modal: string;
-
-  modais = [
-    {value: 'steak-0', viewValue: 'Metrô'},
-    {value: 'pizza-1', viewValue: 'BRT'},
-    {value: 'tacos-2', viewValue: 'VLT'},
-    {value: 'tacos-2', viewValue: 'Trem'},
-    {value: 'tacos-2', viewValue: 'Ônibus'}
-  ];
+  idlinha: number;
+  idmodal: number;
+  selecionada: number;
+  filtradas: any[];
 
   constructor(
-    public dialogRef: MatDialogRef<CriarComposicaoComponent>
-  ) {}
+    public dialogRef: MatDialogRef<CriarComposicaoComponent>,
+    public Modais: ModaisService,
+    public Linhas: LinhasService,
+  ) {
+    this.Modais = Modais;
+    this.Modais.loadModais()
+    .then((modais) => {
+      console.log(modais);
+    });
+    this.Linhas = Linhas;
+    this.Linhas.loadLinhas()
+    .then((linhas) => {
+      console.log(linhas);
+    });
+  }
   
   ngOnInit() {
     
+  }
+
+  selecionarModal(idmodal: number) {
+    this.selecionada = idmodal;
+    this.filtradas = [];
+    for (let linha of this.Linhas.list)
+      if (parseInt(linha.idmodal) === idmodal) 
+        this.filtradas.push(linha);
   }
     
   onCancelar(): void {
@@ -32,11 +49,14 @@ export class CriarComposicaoComponent implements OnInit {
   }
   
   criarComposicao() {
-    // Criar Novo Modal no BD
-    this.dialogRef.close({codigo: this.codigo}),
-    this.dialogRef.close({linha: this.linha});
-    this.dialogRef.close({modal: this.modal});
-  
+    this.dialogRef.close({
+      cod_rastreador: this.codigo,
+      idmodal: this.idmodal,
+      ultima_atualizacao: Date.now(),
+      lat: 0,
+      lng: 0
+    });
+
   }
 
 }

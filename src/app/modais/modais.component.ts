@@ -10,7 +10,6 @@ import { ModaisService } from '../services/modais.service';
   styleUrls: ['./modais.component.scss']
 })
 export class ModaisComponent implements OnInit {
-  modais: any[];
 
   constructor(
     public Modais: ModaisService,
@@ -19,7 +18,6 @@ export class ModaisComponent implements OnInit {
     this.Modais.loadModais()
     .then((modais: any[]) => {
       console.log(modais);
-      this.modais = modais;
     });  
   }
 
@@ -47,12 +45,15 @@ export class ModaisComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(data);
 
-      this.modais.push({
+      this.Modais.criarModal({
         nome: data.nome,
         totalLinhas: 10,
         totalEstacoes: 20,
         totalComposicoes: 15
       })
+        .then(() => {
+          this.Modais.loadModais(true);
+        });
     });
   }
 }

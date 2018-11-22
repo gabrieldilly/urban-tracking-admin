@@ -30,4 +30,9 @@ export class LinhasService {
   loadLinha(id){
     return this.httpClient.get(`${environment.apiURL}/linhas/${id}`).toPromise();
   }
+
+  criarLinha(linha) {
+    this.list.push(linha);
+  }
+  
 }

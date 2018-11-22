@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ModaisService } from '../services/modais.service';
 
 @Component({
   selector: 'app-criar-linha',
@@ -9,10 +10,18 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class CriarLinhaComponent implements OnInit {
   nome: string;
   rota: string;
+  idmodal: number;
 
   constructor(
-    public dialogRef: MatDialogRef<CriarLinhaComponent>
-  ) {}
+    public dialogRef: MatDialogRef<CriarLinhaComponent>,
+    public Modais: ModaisService
+  ) {
+    this.Modais = Modais;
+    this.Modais.loadModais()
+    .then((modais) => {
+      console.log(modais);
+    });
+  }
   
   ngOnInit() {
     
@@ -23,8 +32,12 @@ export class CriarLinhaComponent implements OnInit {
   }
   
   criarLinha() {
-    // Criar Novo Modal no BD
-    this.dialogRef.close({nome: this.nome}),
-    this.dialogRef.close({rota: this.rota})
+    this.dialogRef.close({
+      nome: this.nome,
+      idmodal: this.idmodal,
+      rotas: [{
+        nome: this.rota
+      }]
+    });
   }
 }

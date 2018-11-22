@@ -4,8 +4,16 @@
   <mat-form-field>
     <input matInput [(ngModel)]="nome" placeholder="Nome">
   </mat-form-field>
+  <mat-form-field required>
+    <mat-select placeholder="Modal" [(value)]="idmodal">
+      <mat-option></mat-option>
+      <mat-option *ngFor="let modal of Modais.list" [value]="modal.id">
+        {{ modal.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="rota" placeholder="Nome 1a Rota">
+    <input matInput [(ngModel)]="rota" placeholder="Nome 1ª Rota">
   </mat-form-field>
   </div>
 </div>

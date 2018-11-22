@@ -12,12 +12,21 @@ import { ActivatedRoute } from '@angular/router';
 export class VerLinhaComponent implements OnInit, OnDestroy {
   linha: any;
   private sub: any;
+  rota_selecionada: number;
+  rotas: any[];
 
   constructor(private route: ActivatedRoute, 
     public Linhas: LinhasService,
     public dialog: MatDialog) {
     this.Linhas = Linhas;
-    
+    this.rota_selecionada = 0;
+    this.rotas = [{}];
+    this.linha = {
+      rotas:[{
+
+      }],
+      modal: {}
+    }
   }
 
   ngOnInit() {
@@ -29,6 +38,8 @@ export class VerLinhaComponent implements OnInit, OnDestroy {
       .then(data => {
         console.log(data);
         this.linha = data;
+        this.rota_selecionada = 0;
+        this.rotas = this.linha.rotas;
       })
       .catch(err => console.log(err));
 

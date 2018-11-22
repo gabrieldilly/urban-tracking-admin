@@ -5,16 +5,18 @@
     <input matInput [(ngModel)]="codigo" placeholder="Codigo">
   </mat-form-field>
   <mat-form-field required>
-    <mat-select placeholder="Modal">
-      <mat-option *ngFor="let food of modais" [value]="food.value">
-        {{ food.viewValue }}
+    <mat-select placeholder="Modal" [(value)]="idmodal" (change)="selecionarModal(idmodal)">
+      <mat-option></mat-option>
+      <mat-option *ngFor="let modal of Modais.list" [value]="modal.id">
+        {{ modal.nome }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field required>
-      <mat-select placeholder="Linha">
-        <mat-option *ngFor="let food of modais" [value]="food.value">
-          {{ food.viewValue }}
+      <mat-select placeholder="Linha" [(value)]="idlinha">
+        <mat-option></mat-option>
+        <mat-option *ngFor="let linha of filtradas" [value]="linha.id">
+          {{ linha.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
